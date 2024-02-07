@@ -1,11 +1,45 @@
-import './App.css';
+import "./App.css";
 
-function App() {
+const faqs = [
+  {
+    title: "Where are these chairs assembled?",
+    text: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusantium, quaerat temporibus quas dolore provident nisi ut aliquid ratione beatae sequi aspernatur veniam repellendus.",
+  },
+  {
+    title: "How long do I have to return my chair?",
+    text: "Pariatur recusandae dignissimos fuga voluptas unde optio nesciunt commodi beatae, explicabo natus.",
+  },
+  {
+    title: "Do you ship to countries outside the EU?",
+    text: "Excepturi velit laborum, perspiciatis nemo perferendis reiciendis aliquam possimus dolor sed! Dolore laborum ducimus veritatis facere molestias!",
+  },
+];
+
+export default function App() {
   return (
-    <div className="App">
-      accordion
+    <div>
+      <Accordion data={faqs} />
     </div>
   );
 }
 
-export default App;
+function Accordion({ data }) {
+  return (
+    <div>
+      {data.map((item, i) => (
+        <Item title={item.title} text={item.text} num={i} rey={i} />
+      ))}
+    </div>
+  );
+}
+debugger;
+function Item({ num, title, text }) {
+  return (
+    <div>
+      <p>{num < 9 ? `0${num + 1}` : num + 1}</p>
+      <p>{title}</p>
+      <p>-</p>
+      <div>{text}</div>
+    </div>
+  );
+}
