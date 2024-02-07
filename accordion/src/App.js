@@ -1,3 +1,4 @@
+import { useState } from "react";
 import "./App.css";
 
 const faqs = [
@@ -25,21 +26,26 @@ export default function App() {
 
 function Accordion({ data }) {
   return (
-    <div>
+    <div className="accordion">
       {data.map((item, i) => (
         <Item title={item.title} text={item.text} num={i} rey={i} />
       ))}
     </div>
   );
 }
-debugger;
+
 function Item({ num, title, text }) {
+
+ 
   return (
-    <div>
-      <p>{num < 9 ? `0${num + 1}` : num + 1}</p>
-      <p>{title}</p>
-      <p>-</p>
-      <div>{text}</div>
+    <div
+      className={'item '}
+      
+    >
+      <p className="number">{num }</p>
+      <p className="title">{title}</p>
+      <p className="icon">-</p>
+      <div className="content-text">{text}</div>
     </div>
   );
 }
