@@ -138,6 +138,7 @@ body {
 }
 
 .open {
+  border-top: 4px solid #087f5b;
 }
 
 .open .number,
