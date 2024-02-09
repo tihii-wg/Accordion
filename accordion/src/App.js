@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./App.css";
+import { Accordion } from "./Accordion";
 
 const faqs = [
   {
@@ -20,32 +21,6 @@ export default function App() {
   return (
     <div>
       <Accordion data={faqs} />
-    </div>
-  );
-}
-
-function Accordion({ data }) {
-  return (
-    <div className="accordion">
-      {data.map((item, i) => (
-        <Item title={item.title} text={item.text} num={i} rey={i} />
-      ))}
-    </div>
-  );
-}
-
-function Item({ num, title, text }) {
-
- 
-  return (
-    <div
-      className={'item '}
-      
-    >
-      <p className="number">{num }</p>
-      <p className="title">{title}</p>
-      <p className="icon">-</p>
-      <div className="content-text">{text}</div>
     </div>
   );
 }
