@@ -9,7 +9,7 @@ export function Item({ num, title, text }) {
 
   return (
     <div
-      className={isOpen ? "item open" : "item"}
+      className={`item ${isOpen ? "open" : ""}`}
       onClick={toogleIsOpenHandler}
     >
       <p className="number">{num < 9 ? `0${num + 1}` : num + 1}</p>
