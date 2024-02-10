@@ -1,15 +1,13 @@
 export function Item({ num, title, text, onOpen, setOnOpen }) {
   const isOpen = num === onOpen;
-  const toogleIsOpenHandler = (num) => {
+  const toogleIsOpenHandler = () => {
     setOnOpen(isOpen ? null : num);
   };
 
   return (
     <div
       className={`item ${isOpen ? "open" : ""}`}
-      onClick={() => {
-        toogleIsOpenHandler(num);
-      }}
+      onClick={toogleIsOpenHandler}
     >
       <p className="number">{num < 9 ? `0${num + 1}` : num + 1}</p>
       <p className="title">{title}</p>
