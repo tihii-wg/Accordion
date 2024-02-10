@@ -1,16 +1,15 @@
-import { useState } from "react";
-
-export function Item({ num, title, text }) {
-  const [isOpen, setIsOpen] = useState(true);
-
-  const toogleIsOpenHandler = () => {
-    setIsOpen((isOpen) => !isOpen);
+export function Item({ num, title, text, onOpen, setOnOpen }) {
+  const isOpen = num === onOpen;
+  const toogleIsOpenHandler = (num) => {
+    setOnOpen(isOpen ? null : num);
   };
 
   return (
     <div
       className={`item ${isOpen ? "open" : ""}`}
-      onClick={toogleIsOpenHandler}
+      onClick={() => {
+        toogleIsOpenHandler(num);
+      }}
     >
       <p className="number">{num < 9 ? `0${num + 1}` : num + 1}</p>
       <p className="title">{title}</p>
